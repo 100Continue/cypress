@@ -243,7 +243,7 @@ class HttpsAgent extends https.Agent {
     if (process.env.HTTPS_PROXY) {
       const proxy = getProxyForUrl(options.href)
 
-      if (typeof proxy === "string") {
+      if (proxy) {
         options.proxy = <string>proxy
 
         return this.createProxiedConnection(<RequestOptionsWithProxy>options, cb)
